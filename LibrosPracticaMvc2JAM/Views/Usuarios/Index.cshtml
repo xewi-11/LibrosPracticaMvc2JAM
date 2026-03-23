@@ -1,0 +1,13 @@
+﻿@model Usuarios
+
+<a asp-controller="Libro" asp-action="Index">Volver al catalogo</a>
+@if(Model != null)
+{
+    <h1>Bienvenido, @Model.Nombre</h1>
+    <p>Tu correo electrónico es: @Model.Email</p>
+}
+else
+{
+    <p>No se ha encontrado información del usuario.</p>
+}
+

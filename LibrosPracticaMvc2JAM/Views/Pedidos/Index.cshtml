@@ -1,0 +1,37 @@
+﻿@model List<VistaPedidos>
+
+
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+<h1>Pedidos</h1>
+
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdPedido</th>
+                <th>Fecha</th>
+                <th>Total</th>
+
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (VistaPedidos pedido in Model){
+            <tr>
+                <td>@pedido.IdVista</td>
+                <td>@pedido.Fecha.ToShortDateString()</td>
+                <td>@pedido.PrecioFinal</td>
+                <td>@pedido.Titulo</td>
+               </tr>
+                 }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay pedidos disponibles.</p>
+}

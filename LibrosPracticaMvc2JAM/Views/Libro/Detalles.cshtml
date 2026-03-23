@@ -1,0 +1,28 @@
+﻿@model Libros
+@if (Model!=null )
+{
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="~/images/@Model.Portada" class="img-fluid rounded-start" alt="@Model.Titulo" />
+        </div>
+
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class=" card-title
+
+                    ">
+                            @Model.Titulo
+                    </h5>
+
+                    <p class="card-text">
+                     @Model.Autor
+
+                    </p>
+                    <p class="card-text"><small class="text-muted">Publicado en la editorial de  @Model.Editorial.</small></p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+}

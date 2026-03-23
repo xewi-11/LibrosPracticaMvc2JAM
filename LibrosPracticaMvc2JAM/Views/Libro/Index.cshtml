@@ -1,0 +1,37 @@
+﻿@model List<Libros>
+
+    @{
+    ViewData["Title"] = "Index";
+}
+
+@if (Model != null)
+{
+  //cartas de los libros
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (Libros libro in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="~/images/@libro.Portada" class="card-img-top" alt="@libro.Titulo" />
+                    <div class="card-body">
+                        <h5 class=" card-title
+
+        ">
+                            @libro.Titulo
+                        </h5>
+
+                        <p class="card-text">
+                          @libro.Editorial
+
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-controller="Libro" asp-action="Detalles" asp-route-idLibro="@libro.IdLibro" class="btn btn-primary">Ver detalles</a>
+                        <a asp-controller="Libro" asp-action="AddToCarritoSesion" asp-route-idLibro="@libro.IdLibro" class="btn btn-primary">Añadir a carrito</a>
+                    </div>
+                </div>
+            </div>
+    }
+
+    </div>
+}

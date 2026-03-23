@@ -1,0 +1,46 @@
+﻿@model List<Libros>
+
+    @{
+    ViewData["Title"] = "Carrito de compras";
+}
+@{
+    List<int> LibrosIds;
+    if (ViewData["LIBROSID"] != null)
+    {
+        LibrosIds = ViewData["LIBROSID"] as List<int>;
+    }
+    else
+    {
+        LibrosIds = new List<int>();
+    }
+}
+@if (Model != null)
+{
+    <a class="nav-link text-dark" asp-area="" asp-controller="Libro" asp-action="LimpiarCarritoSession">Limpiar Carrito </a>
+    //cartas de los libros
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (Libros libro in Model)
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="~/images/@libro.Portada" class="card-img-top" alt="@libro.Titulo" />
+                    <div class="card-body">
+                        <h5 class=" card-title
+                     
+    ">
+        @libro.Titulo
+
+                    </h5>
+                        <p class="card-text">
+                            @libro.Editorial
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+    }
+    </div>
+        
+    <a asp-controller="Pedidos" asp-action="CreatePedido">Crear pedido</a>
+    
+}
